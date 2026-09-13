@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RaeiGaze | Creating a Better Reality</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<header id="site-header">
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo">raeigaze</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="btn btn-ghost">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="dot-field">
+    <canvas id="dotCanvas"></canvas>
+  </div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Digital Services Agency</span>
+    <h1>Creating a <em>better</em><br>reality</h1>
+    <p class="hero-sub">Raeigaze is a strategy-driven digital agency built to help brands grow with clarity, creativity, and consistency &mdash; for you, and your demands.</p>
+    <div class="hero-cta">
+      <a href="services.html" class="btn btn-solid">Explore Services</a>
+      <a href="contact.html" class="btn btn-ghost">Contact Us</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>Fast</strong>Performance built for speed</div>
+      <div><strong>Clean</strong>UI &amp; UX with real intent</div>
+      <div><strong>Modern</strong>Visuals that hold attention</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What We Do</span>
+      <h2>Services designed to match your vision</h2>
+      <p>Built to exceed expectations &mdash; each service pulled in only when your project actually needs it.</p>
+    </div>
+    <div class="services-list">
+      <a href="services/web-design.html" class="service-row">
+        <span class="service-index">01</span>
+        <h3>Web Design &amp; Development</h3>
+        <p>Modern websites that feel premium and convert.</p>
+        <span class="service-arrow">&#8599;</span>
+      </a>
+      <a href="services/graphic-design.html" class="service-row">
+        <span class="service-index">02</span>
+        <h3>Graphic Designing</h3>
+        <p>Logos, brand kits, posters, and digital designs.</p>
+        <span class="service-arrow">&#8599;</span>
+      </a>
+      <a href="services/photo-video-editing.html" class="service-row">
+        <span class="service-index">03</span>
+        <h3>Photo &amp; Video Editing</h3>
+        <p>Cinematic edits, reels, ads, and professional visuals.</p>
+        <span class="service-arrow">&#8599;</span>
+      </a>
+      <a href="services/copywriting.html" class="service-row">
+        <span class="service-index">04</span>
+        <h3>Copywriting</h3>
+        <p>Words that sell, persuade, and build trust.</p>
+        <span class="service-arrow">&#8599;</span>
+      </a>
+      <a href="services/content-writing.html" class="service-row">
+        <span class="service-index">05</span>
+        <h3>Content Writing</h3>
+        <p>SEO content and professional brand writing.</p>
+        <span class="service-arrow">&#8599;</span>
+      </a>
+      <a href="services/creative-ghostwriting.html" class="service-row">
+        <span class="service-index">06</span>
+        <h3>Creative &amp; Ghostwriting</h3>
+        <p>Stories, scripts, and writing with real depth.</p>
+        <span class="service-arrow">&#8599;</span>
+      </a>
+      <a href="services/ai-automation.html" class="service-row">
+        <span class="service-index">07</span>
+        <h3>AI Automation</h3>
+        <p>Smart AI workflows to save time and boost output.</p>
+        <span class="service-arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div class="about-panel"><span>Jack of all trades,<br>master of each one.</span></div>
+    <div class="about-text">
+      <span class="eyebrow" style="display:block; margin-bottom:20px;">Who We Are</span>
+      <p>Raeigaze is a strategist digital service agency focused on clear positioning, thoughtful design, and writing that converts.</p>
+      <p>We don't just create visuals or campaigns &mdash; we build systems that work specifically for your brand. Our agency operates with a carefully selected network of specialists across design, development, content, marketing, copywriting, and creative services, so you get the right expertise on every project without managing multiple people yourself.</p>
+      <p>We take full responsibility for planning, coordination, quality control, and delivery, so you can focus on running your business with confidence.</p>
+      <div class="pillars">
+        <div class="pillar"><h4>Minimal</h4><p>We don't overload. We design with purpose.</p></div>
+        <div class="pillar"><h4>Premium</h4><p>Every component looks intentional.</p></div>
+        <div class="pillar"><h4>Strategic</h4><p>We build for growth without losing aesthetics.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How We Work</span>
+      <h2>A clean process, built for fast results</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="num">i.</span>
+        <h3>Discovery</h3>
+        <p>We understand your vision, market, and demands.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">ii.</span>
+        <h3>Strategy</h3>
+        <p>We plan the best structure and content for your goals.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">iii.</span>
+        <h3>Execution</h3>
+        <p>We design and deliver premium output with precision.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">iv.</span>
+        <h3>Growth</h3>
+        <p>We help you stay ahead with modern solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>Because your brand deserves to look unforgettable</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Premium Aesthetic</h3>
+        <p>Elegant visuals and design systems that make your brand look credible and unforgettable.</p>
+      </div>
+      <div class="why-item">
+        <h3>Expertise &amp; Governance</h3>
+        <p>Experts work on your project; professionals supervise it, end to end.</p>
+      </div>
+      <div class="why-item">
+        <h3>High Conversion Focus</h3>
+        <p>We build to attract attention and generate action, not just admiration.</p>
+      </div>
+      <div class="why-item">
+        <h3>Trust &amp; Professionalism</h3>
+        <p>We deliver with responsibility and clarity, every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap cta-wrap">
+    <span class="eyebrow">Ready to Build Something Powerful?</span>
+    <h2>Let Raeigaze craft the reality your brand deserves</h2>
+    <p>And be stress-free while we do it.</p>
+    <a href="contact.html" class="btn btn-solid">Let's Work Together</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="index.html" class="logo">raeigaze</a>
+    <span class="footer-copy">&copy; <span id="year"></span> RaeiGaze. All Rights Reserved.</span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
