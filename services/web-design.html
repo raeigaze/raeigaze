@@ -6,8 +6,19 @@
 <title>Web Design & Development | RaeiGaze Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="../assets/style.css">
+<style>
+.portfolio-grid.real-projects { align-items: stretch; }
+.real-project-card { display:block; overflow:hidden; color:inherit; text-decoration:none; }
+.real-project-preview { position:relative; width:100%; height:360px; overflow:hidden; background:#111; border-radius:inherit; }
+.real-project-preview iframe { display:block; width:100%; height:100%; border:0; pointer-events:none; transform-origin:top left; }
+.real-project-overlay { position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:flex-end; padding:22px; background:linear-gradient(to top, rgba(0,0,0,.55), transparent 45%); opacity:0; transition:opacity .3s ease; }
+.real-project-overlay span { padding:10px 14px; border:1px solid rgba(255,255,255,.55); border-radius:999px; color:#fff; background:rgba(0,0,0,.3); backdrop-filter:blur(8px); font-size:12px; letter-spacing:.04em; }
+.real-project-card:hover .real-project-overlay { opacity:1; }
+.real-project-card .portfolio-body { position:relative; }
+@media (max-width:700px) { .real-project-preview { height:260px; } .real-project-overlay { opacity:1; } }
+</style>
 </head>
 <body>
 
@@ -55,22 +66,10 @@
       <h2>Real impact, not just deliverables</h2>
     </div>
     <div class="impact-grid">
-      <div class="impact-card">
-        <span class="impact-icon">i.</span>
-        <div><h4>Higher Conversion</h4><p>Clear calls-to-action and intentional page flow turn more visitors into actual leads, not just page views.</p></div>
-      </div>
-      <div class="impact-card">
-        <span class="impact-icon">ii.</span>
-        <div><h4>Faster Load Times</h4><p>Lightweight, optimized builds mean fewer visitors bounce before the page even finishes loading.</p></div>
-      </div>
-      <div class="impact-card">
-        <span class="impact-icon">iii.</span>
-        <div><h4>Stronger First Impression</h4><p>A premium-looking site signals credibility before a single word is read.</p></div>
-      </div>
-      <div class="impact-card">
-        <span class="impact-icon">iv.</span>
-        <div><h4>Built To Scale</h4><p>Clean structure means adding pages, services, or a store later doesn't mean rebuilding from scratch.</p></div>
-      </div>
+      <div class="impact-card"><span class="impact-icon">i.</span><div><h4>Higher Conversion</h4><p>Clear calls-to-action and intentional page flow turn more visitors into actual leads, not just page views.</p></div></div>
+      <div class="impact-card"><span class="impact-icon">ii.</span><div><h4>Faster Load Times</h4><p>Lightweight, optimized builds mean fewer visitors bounce before the page even finishes loading.</p></div></div>
+      <div class="impact-card"><span class="impact-icon">iii.</span><div><h4>Stronger First Impression</h4><p>A premium-looking site signals credibility before a single word is read.</p></div></div>
+      <div class="impact-card"><span class="impact-icon">iv.</span><div><h4>Built To Scale</h4><p>Clean structure means adding pages, services, or a store later doesn't mean rebuilding from scratch.</p></div></div>
     </div>
   </div>
 </section>
@@ -80,33 +79,32 @@
     <div class="section-head">
       <span class="eyebrow">Portfolio</span>
       <h2>A look at work in this category</h2>
-      <p>Placeholder slots below &mdash; swap in real project visuals and case studies as they're ready.</p>
+      <p>Selected websites we've built. Open any project to explore the full site.</p>
     </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>Add project visual</span></div>
+    <div class="portfolio-grid real-projects">
+      <a class="portfolio-card real-project-card" href="../project02/ivory-courtyard.html" target="_blank" rel="noopener noreferrer" aria-label="Open Ivory Courtyard website">
+        <div class="real-project-preview">
+          <iframe src="../project02/ivory-courtyard.html" title="Ivory Courtyard website preview" loading="lazy" tabindex="-1"></iframe>
+          <div class="real-project-overlay"><span>Open Project ↗</span></div>
+        </div>
         <div class="portfolio-body">
-          <h4>Studio Portfolio Site</h4>
-          <p>A one-page portfolio built for a creative studio.</p>
+          <h4>Ivory Courtyard</h4>
+          <p>Luxury hospitality website concept.</p>
           <span class="portfolio-tag">Web Design</span>
         </div>
-      </div>
-      <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>Add project visual</span></div>
-        <div class="portfolio-body">
-          <h4>E-Commerce Storefront</h4>
-          <p>Conversion-focused product and checkout flow.</p>
-          <span class="portfolio-tag">Development</span>
+      </a>
+
+      <a class="portfolio-card real-project-card" href="../project03/index.html" target="_blank" rel="noopener noreferrer" aria-label="Open Exotics Max website">
+        <div class="real-project-preview">
+          <iframe src="../project03/index.html" title="Exotics Max website preview" loading="lazy" tabindex="-1"></iframe>
+          <div class="real-project-overlay"><span>Open Project ↗</span></div>
         </div>
-      </div>
-      <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>Add project visual</span></div>
         <div class="portfolio-body">
-          <h4>SaaS Landing Page</h4>
-          <p>High-conversion landing page for a product launch.</p>
-          <span class="portfolio-tag">Web Design</span>
+          <h4>Exotics Max</h4>
+          <p>Premium automotive concierge website.</p>
+          <span class="portfolio-tag">Web Design &amp; Development</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
