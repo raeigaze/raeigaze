@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..900;1,6..72,200..900&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bone: #efe9df;
+  --oxblood: #571b1b;
+  --ink: #14120f;
+}
+
+html {
+  background: var(--bone);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Editorial New', 'Newsreader', Georgia, serif;
+  color: var(--ink);
+  background: var(--bone);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-editorial {
+  font-family: 'Editorial New', 'Newsreader', Georgia, serif;
+}
+
+.font-grotesk {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+::selection {
+  background: var(--oxblood);
+  color: var(--bone);
+}
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(6vh);
+  filter: blur(14px);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-title.is-in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
