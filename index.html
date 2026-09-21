@@ -15,9 +15,9 @@
 .home-portfolio-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
 .home-project-card { display:block; color:inherit; text-decoration:none; min-width:0; }
 .home-project-preview { position:relative; height:320px; overflow:hidden; background:#111; border:1px solid rgba(255,255,255,.08); border-radius:2px; isolation:isolate; }
-.home-project-preview::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(to bottom, transparent 55%, rgba(0,0,0,.5)); }
-.home-project-preview iframe { position:absolute; left:0; top:-78px; width:100%; height:calc(100% + 78px); border:0; pointer-events:none; transform-origin:top left; }
-.home-project-overlay { position:absolute; z-index:3; inset:0; display:flex; align-items:flex-end; justify-content:space-between; padding:20px; opacity:0; transition:opacity .3s ease, background .3s ease; background:linear-gradient(to top,rgba(0,0,0,.6),transparent 55%); }
+.home-project-preview iframe { position:absolute; left:0; top:-86px; width:100%; height:calc(100% + 86px); border:0; pointer-events:none; transform-origin:top left; }
+.home-project-preview::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(to bottom, transparent 62%, rgba(0,0,0,.45)); }
+.home-project-overlay { position:absolute; z-index:3; inset:0; display:flex; align-items:flex-end; justify-content:flex-end; padding:20px; opacity:0; transition:opacity .3s ease; background:linear-gradient(to top,rgba(0,0,0,.58),transparent 55%); }
 .home-project-overlay span { font-size:12px; letter-spacing:.05em; color:#fff; border:1px solid rgba(255,255,255,.5); padding:9px 13px; border-radius:999px; background:rgba(0,0,0,.28); backdrop-filter:blur(8px); }
 .home-project-card:hover .home-project-overlay { opacity:1; }
 .home-project-card:hover .home-project-preview { border-color:rgba(255,255,255,.22); }
@@ -48,40 +48,25 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" class="btn btn-ghost">Contact</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span>
-      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span></button>
     </nav>
   </div>
 </header>
 
 <section class="hero" id="top">
-  <div class="dot-field">
-    <canvas id="dotCanvas"></canvas>
-  </div>
+  <div class="dot-field"><canvas id="dotCanvas"></canvas></div>
   <div class="wrap hero-inner">
     <span class="eyebrow">Digital Services Agency</span>
     <h1>Creating a <em>better</em><br>reality</h1>
     <p class="hero-sub">Raeigaze is a strategy-driven digital agency built to help brands grow with clarity, creativity, and consistency &mdash; for you, and your demands.</p>
-    <div class="hero-cta">
-      <a href="services.html" class="btn btn-solid">Explore Services</a>
-      <a href="contact.html" class="btn btn-ghost">Contact Us</a>
-    </div>
-    <div class="hero-meta">
-      <div><strong>Fast</strong>Performance built for speed</div>
-      <div><strong>Clean</strong>UI &amp; UX with real intent</div>
-      <div><strong>Modern</strong>Visuals that hold attention</div>
-    </div>
+    <div class="hero-cta"><a href="services.html" class="btn btn-solid">Explore Services</a><a href="contact.html" class="btn btn-ghost">Contact Us</a></div>
+    <div class="hero-meta"><div><strong>Fast</strong>Performance built for speed</div><div><strong>Clean</strong>UI &amp; UX with real intent</div><div><strong>Modern</strong>Visuals that hold attention</div></div>
   </div>
 </section>
 
 <section id="services">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What We Do</span>
-      <h2>Services designed to match your vision</h2>
-      <p>Built to exceed expectations &mdash; each service pulled in only when your project actually needs it.</p>
-    </div>
+    <div class="section-head"><span class="eyebrow">What We Do</span><h2>Services designed to match your vision</h2><p>Built to exceed expectations &mdash; each service pulled in only when your project actually needs it.</p></div>
     <div class="services-list">
       <a href="services/web-design.html" class="service-row"><span class="service-index">01</span><h3>Web Design &amp; Development</h3><p>Modern websites that feel premium and convert.</p><span class="service-arrow">&#8599;</span></a>
       <a href="services/graphic-design.html" class="service-row"><span class="service-index">02</span><h3>Graphic Designing</h3><p>Logos, brand kits, posters, and digital designs.</p><span class="service-arrow">&#8599;</span></a>
@@ -97,80 +82,37 @@
 <section class="home-portfolio" id="web-work">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Web Design &amp; Development</span>
+      <span class="eyebrow">01 / Web Design &amp; Development</span>
       <h2>Some of what we've built</h2>
       <p>Three selected websites, built around different brands, audiences, and goals.</p>
     </div>
-
     <div class="home-portfolio-grid">
       <a class="home-project-card" href="project02/ivory-courtyard.html" target="_blank" rel="noopener noreferrer" aria-label="Open Ivory Courtyard website">
-        <div class="home-project-preview">
-          <iframe src="project02/ivory-courtyard.html" title="Ivory Courtyard preview" loading="lazy" tabindex="-1"></iframe>
-          <div class="home-project-overlay"><span>Open Project ↗</span></div>
-        </div>
+        <div class="home-project-preview"><iframe src="project02/ivory-courtyard.html" title="Ivory Courtyard preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div>
         <div class="home-project-info"><h4>Ivory Courtyard</h4><p>Luxury hospitality website concept.</p><span class="portfolio-tag">Web Design</span></div>
       </a>
-
       <a class="home-project-card" href="project03/index.html" target="_blank" rel="noopener noreferrer" aria-label="Open Exotics Max website">
-        <div class="home-project-preview">
-          <iframe src="project03/index.html" title="Exotics Max preview" loading="lazy" tabindex="-1"></iframe>
-          <div class="home-project-overlay"><span>Open Project ↗</span></div>
-        </div>
+        <div class="home-project-preview"><iframe src="project03/index.html" title="Exotics Max preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div>
         <div class="home-project-info"><h4>Exotics Max</h4><p>Premium automotive concierge website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div>
       </a>
-
       <a class="home-project-card" href="https://haya-and-hues-04.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Haya & Hues website">
-        <div class="home-project-preview">
-          <iframe src="https://haya-and-hues-04.vercel.app/" title="Haya & Hues preview" loading="lazy" tabindex="-1"></iframe>
-          <div class="home-project-overlay"><span>Open Project ↗</span></div>
-        </div>
+        <div class="home-project-preview"><iframe src="https://haya-and-hues-04.vercel.app/" title="Haya & Hues preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div>
         <div class="home-project-info"><h4>Haya &amp; Hues</h4><p>Fashion and lifestyle website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div>
       </a>
     </div>
-
     <div class="view-more-wrap"><a class="view-more-link" href="services/web-design.html">View more web design work <span>→</span></a></div>
   </div>
 </section>
 
 <section id="about">
-  <div class="wrap about">
-    <div class="about-panel"><span>Jack of all trades,<br>master of each one.</span></div>
-    <div class="about-text">
-      <span class="eyebrow" style="display:block; margin-bottom:20px;">Who We Are</span>
-      <p>Raeigaze is a strategist digital service agency focused on clear positioning, thoughtful design, and writing that converts.</p>
-      <p>We don't just create visuals or campaigns &mdash; we build systems that work specifically for your brand. Our agency operates with a carefully selected network of specialists across design, development, content, marketing, copywriting, and creative services, so you get the right expertise on every project without managing multiple people yourself.</p>
-      <p>We take full responsibility for planning, coordination, quality control, and delivery, so you can focus on running your business with confidence.</p>
-      <div class="pillars"><div class="pillar"><h4>Minimal</h4><p>We don't overload. We design with purpose.</p></div><div class="pillar"><h4>Premium</h4><p>Every component looks intentional.</p></div><div class="pillar"><h4>Strategic</h4><p>We build for growth without losing aesthetics.</p></div></div>
-    </div>
-  </div>
+  <div class="wrap about"><div class="about-panel"><span>Jack of all trades,<br>master of each one.</span></div><div class="about-text"><span class="eyebrow" style="display:block; margin-bottom:20px;">Who We Are</span><p>Raeigaze is a strategist digital service agency focused on clear positioning, thoughtful design, and writing that converts.</p><p>We don't just create visuals or campaigns &mdash; we build systems that work specifically for your brand. Our agency operates with a carefully selected network of specialists across design, development, content, marketing, copywriting, and creative services, so you get the right expertise on every project without managing multiple people yourself.</p><p>We take full responsibility for planning, coordination, quality control, and delivery, so you can focus on running your business with confidence.</p><div class="pillars"><div class="pillar"><h4>Minimal</h4><p>We don't overload. We design with purpose.</p></div><div class="pillar"><h4>Premium</h4><p>Every component looks intentional.</p></div><div class="pillar"><h4>Strategic</h4><p>We build for growth without losing aesthetics.</p></div></div></div></div>
 </section>
 
-<section id="process">
-  <div class="wrap">
-    <div class="section-head"><span class="eyebrow">How We Work</span><h2>A clean process, built for fast results</h2></div>
-    <div class="process-grid">
-      <div class="process-step"><span class="num">i.</span><h3>Discovery</h3><p>We understand your vision, market, and demands.</p></div>
-      <div class="process-step"><span class="num">ii.</span><h3>Strategy</h3><p>We plan the best structure and content for your goals.</p></div>
-      <div class="process-step"><span class="num">iii.</span><h3>Execution</h3><p>We design and deliver premium output with precision.</p></div>
-      <div class="process-step"><span class="num">iv.</span><h3>Growth</h3><p>We help you stay ahead with modern solutions.</p></div>
-    </div>
-  </div>
-</section>
+<section id="process"><div class="wrap"><div class="section-head"><span class="eyebrow">How We Work</span><h2>A clean process, built for fast results</h2></div><div class="process-grid"><div class="process-step"><span class="num">i.</span><h3>Discovery</h3><p>We understand your vision, market, and demands.</p></div><div class="process-step"><span class="num">ii.</span><h3>Strategy</h3><p>We plan the best structure and content for your goals.</p></div><div class="process-step"><span class="num">iii.</span><h3>Execution</h3><p>We design and deliver premium output with precision.</p></div><div class="process-step"><span class="num">iv.</span><h3>Growth</h3><p>We help you stay ahead with modern solutions.</p></div></div></div></section>
 
-<section id="why">
-  <div class="wrap">
-    <div class="section-head"><span class="eyebrow">Why Choose Us</span><h2>Because your brand deserves to look unforgettable</h2></div>
-    <div class="why-grid">
-      <div class="why-item"><h3>Premium Aesthetic</h3><p>Elegant visuals and design systems that make your brand look credible and unforgettable.</p></div>
-      <div class="why-item"><h3>Expertise &amp; Governance</h3><p>Experts work on your project; professionals supervise it, end to end.</p></div>
-      <div class="why-item"><h3>High Conversion Focus</h3><p>We build to attract attention and generate action, not just admiration.</p></div>
-      <div class="why-item"><h3>Trust &amp; Professionalism</h3><p>We deliver with responsibility and clarity, every time.</p></div>
-    </div>
-  </div>
-</section>
+<section id="why"><div class="wrap"><div class="section-head"><span class="eyebrow">Why Choose Us</span><h2>Because your brand deserves to look unforgettable</h2></div><div class="why-grid"><div class="why-item"><h3>Premium Aesthetic</h3><p>Elegant visuals and design systems that make your brand look credible and unforgettable.</p></div><div class="why-item"><h3>Expertise &amp; Governance</h3><p>Experts work on your project; professionals supervise it, end to end.</p></div><div class="why-item"><h3>High Conversion Focus</h3><p>We build to attract attention and generate action, not just admiration.</p></div><div class="why-item"><h3>Trust &amp; Professionalism</h3><p>We deliver with responsibility and clarity, every time.</p></div></div></div></section>
 
 <section class="cta"><div class="wrap cta-wrap"><span class="eyebrow">Ready to Build Something Powerful?</span><h2>Let Raeigaze craft the reality your brand deserves</h2><p>And be stress-free while we do it.</p><a href="contact.html" class="btn btn-solid">Let's Work Together</a></div></section>
-
 <footer><div class="wrap footer-inner"><a href="index.html" class="logo">raeigaze</a><span class="footer-copy">&copy; <span id="year"></span> RaeiGaze. All Rights Reserved.</span></div></footer>
 <script src="assets/script.js"></script>
 </body>
