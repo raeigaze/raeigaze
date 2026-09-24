@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ondine Estates · Sustainable luxury in Thailand</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#ece6d8;--mut:#8a8578;--moss:#5f7040;--moss2:#2a3320;--brass:#c2a76a;--line:rgba(236,230,216,.14);--tile:rgba(236,230,216,.05);
+--d:'Cormorant','Cormorant Garamond',Georgia,serif;--s:'Figtree',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:90px;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 16px/1.6 var(--s);overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--d);font-weight:400;margin:0;line-height:.95;letter-spacing:-.01em}
+h2{font-size:clamp(44px,6vw,84px)}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:10px 20px;background:transparent;transition:.35s}
+.pill.solid{background:var(--moss);border-color:var(--moss)}.pill:hover{background:var(--ink);color:#000;border-color:var(--ink)}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--brass);z-index:99}
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(0,0,0,.6);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--d);font-size:30px;letter-spacing:.02em}
+nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:14px}
+nav ul a{position:relative;padding:4px 0;color:var(--mut);transition:.3s}nav ul a:hover{color:var(--ink)}
+@media(max-width:760px){nav ul{display:none}}
+/* hero */
+.hero{padding:56px 0 20px;text-align:center}
+.hero h1{font-size:clamp(52px,10.5vw,152px);text-transform:uppercase;font-weight:300}
+.ln{display:block;overflow:hidden;padding-bottom:.06em}.ln>span{display:block;transform:translateY(105%);animation:up 1.2s cubic-bezier(.2,.8,.2,1) forwards}
+.ln:nth-child(2)>span{animation-delay:.12s}@keyframes up{to{transform:none}}
+.stage{position:relative;margin-top:-6px}
+.stage svg.blob{width:100%;height:auto;display:block;max-height:74vh}
+.stage .cta{position:absolute;left:50%;top:-4px;transform:translate(-50%,-50%);z-index:3}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:70px 0 0}
+.stats div{padding:34px 20px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
+.stats b{font:300 clamp(40px,5vw,72px)/1 var(--d);display:block}.stats span{color:var(--mut);font-size:14px}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+section{padding:120px 0 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:38px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:none;border-radius:99px;padding:8px 18px;font-size:14px;transition:.3s}
+.filters button.on,.filters button:hover{background:var(--ink);color:#000}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:980px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.card{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:3/4;background:var(--tile);border:1px solid var(--line);text-align:left;padding:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s,filter .5s;transform-style:preserve-3d;display:block}
+.card.hide{opacity:.12;filter:blur(3px);pointer-events:none;transform:scale(.96)}
+.card svg{position:absolute;inset:0;width:100%;height:100%;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}.card:hover svg{transform:scale(1.08)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),transparent 55%)}
+.card .in{position:absolute;left:20px;right:20px;bottom:18px;z-index:2}
+.card h3{font-size:32px}.card small{color:var(--mut);font-size:13px}
+.card .r{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px}
+.card .y{font:300 34px var(--d);color:var(--brass)}
+.data{background:linear-gradient(160deg,#1b2014,#0a0d07);padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.data::after{display:none}.data .big{font:300 76px/1 var(--d)}.data p{margin:6px 0 0;color:var(--mut);font-size:14px}
+.data .bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:14px}.data .bar i{display:block;height:100%;background:var(--moss);width:0;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.data.in-v .bar i{width:var(--w)}
+/* before/after */
+.ba{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:16/8;border:1px solid var(--line);user-select:none;touch-action:pan-y}
+@media(max-width:700px){.ba{aspect-ratio:4/3}}
+.ba svg{position:absolute;inset:0;width:100%;height:100%}.ba .b{filter:grayscale(1) brightness(.55) contrast(.9);clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
+.ba .hd{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:var(--ink);pointer-events:none}
+.ba .hd::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--ink);color:#000;display:grid;place-items:center}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba em{position:absolute;bottom:22px;font:300 34px var(--d);z-index:2}.ba em:first-of-type{left:26px}.ba em:last-of-type{right:26px}
+/* invest */
+.calc{display:grid;grid-template-columns:1fr 1.3fr;gap:14px}@media(max-width:860px){.calc{grid-template-columns:1fr}}
+.pane{border:1px solid var(--line);border-radius:30px;padding:34px;background:var(--tile)}
+.amt{font:300 clamp(48px,6vw,84px)/1 var(--d);margin:12px 0 20px}
+input[type=range].r{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:var(--line);border-radius:3px;outline-offset:8px}
+input[type=range].r::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--brass);border:0}
+input[type=range].r::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--brass);border:0}
+.yrs{display:flex;gap:8px;margin-top:26px}.yrs button{flex:1;border:1px solid var(--line);background:none;border-radius:99px;padding:9px}.yrs .on{background:var(--ink);color:#000}
+.res{font:300 clamp(40px,5vw,68px)/1 var(--d);color:var(--brass)}
+#ch{width:100%;height:auto;margin-top:16px}#ch path{transition:d .5s}
+/* map */
+.map{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}@media(max-width:860px){.map{grid-template-columns:1fr}}
+.mp{border-radius:30px;border:1px solid var(--line);background:#0b0b0a;overflow:hidden;position:relative}.mp svg{display:block;width:100%;height:auto}
+.pin{cursor:pointer}.pin circle.h{fill:var(--brass);transform-box:fill-box;transform-origin:center;animation:pl 2.4s infinite}.pin.on circle.c{fill:var(--ink)}
+@keyframes pl{0%{transform:scale(.6);opacity:.7}100%{transform:scale(3);opacity:0}}
+.loc{border-radius:30px;background:linear-gradient(160deg,var(--moss2),#0a0d07);padding:34px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px}
+.loc h3{font-size:64px}.loc dl{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0}.loc dt{color:var(--mut);font-size:13px}.loc dd{margin:0;font:300 34px var(--d)}
+/* quotes */
+.q{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:860px){.q{grid-template-columns:1fr}}
+.q figure{margin:0;border-top:1px solid var(--line);padding-top:22px}.q blockquote{margin:0;font:300 27px/1.2 var(--d)}.q figcaption{margin-top:16px;color:var(--mut);font-size:14px}
+/* footer */
+.end{margin-top:130px;background:var(--moss2);border-radius:44px 44px 0 0;padding:70px 0 40px;overflow:hidden;text-align:center}
+.end h2{font-size:clamp(64px,15vw,220px);text-transform:uppercase;font-weight:300;color:transparent;-webkit-text-stroke:1px var(--ink);transition:.6s;cursor:default}
+.end h2:hover{color:var(--ink)}.end .row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}
+.end p{color:var(--mut);margin:40px 0 0;font-size:13px}
+/* cursor + reveal */
+.cur{position:fixed;left:0;top:0;z-index:100;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--ink);mix-blend-mode:difference;display:grid;place-items:center;transition:width .3s,height .3s,margin .3s}
+.cur.big{width:84px;height:84px;margin:-42px 0 0 -42px}.cur span{font-size:12px;color:#000;opacity:0;transition:.2s}.cur.big span{opacity:1}
+@media(hover:none){.cur{display:none}}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+/* modal */
+.md{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:.4s}
+.md.open{opacity:1;pointer-events:auto}
+.sheet{width:min(920px,100%);max-height:92vh;overflow:auto;border-radius:32px;background:#0a0a09;border:1px solid var(--line);display:grid;grid-template-columns:1.1fr 1fr;transform:translateY(40px) scale(.97);transition:.5s cubic-bezier(.2,.8,.2,1)}
+.md.open .sheet{transform:none}@media(max-width:760px){.sheet{grid-template-columns:1fr}}
+.sheet .pic{min-height:320px;position:relative}.sheet .pic svg{position:absolute;inset:0;width:100%;height:100%}
+.sheet .tx{padding:34px}.sheet h3{font-size:56px}.sheet .price{font:300 34px var(--d);color:var(--brass);margin:10px 0 22px}
+.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}.spec div{border:1px solid var(--line);border-radius:16px;padding:12px}.spec b{font:300 28px var(--d);display:block}.spec span{font-size:12px;color:var(--mut)}
+.m{margin:12px 0;font-size:14px}.m .t{height:4px;background:var(--line);border-radius:4px;margin-top:6px;overflow:hidden}.m i{display:block;height:100%;background:var(--moss);width:0;transition:width 1.2s .2s cubic-bezier(.2,.8,.2,1)}
+.x{position:absolute;top:14px;right:14px;z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(0,0,0,.5)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}.ln>span{transform:none}.rv{opacity:1;transform:none}}
+</style></head>
+<body>
+<div id="bar"></div><div class="cur" id="cur"><span id="cl">View</span></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e2a3a"/><stop offset=".6" stop-color="#8a6a52"/><stop offset="1" stop-color="#e2b27a"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#456b78"/><stop offset="1" stop-color="#07161d"/></linearGradient>
+<g id="palm"><path d="M0 0C4-60 2-110 10-150" stroke="#0b1408" stroke-width="7" fill="none"/><g fill="#0d1a0a"><path d="M10-150C-30-170-60-150-80-120C-40-150-20-150 10-150Z"/><path d="M10-150C50-175 85-155 100-120C60-150 35-150 10-150Z"/><path d="M10-150C-10-190-40-200-60-190C-30-190-15-175 10-150Z"/><path d="M10-150C30-195 60-200 85-185C55-185 35-170 10-150Z"/><path d="M10-150C-5-140-40-110-45-80C-25-115-10-135 10-150Z"/></g></g>
+<symbol id="sc" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
+<rect width="600" height="400" fill="url(#sky)"/><circle cx="130" cy="205" r="52" fill="#f5d39a"/>
+<rect y="235" width="600" height="165" fill="url(#sea)"/><g fill="#f5d39a" opacity=".5"><rect x="100" y="245" width="60" height="3"/><rect x="108" y="256" width="44" height="3"/><rect x="116" y="268" width="28" height="3"/></g>
+<path d="M0 260C120 215 240 250 340 300C440 350 520 330 600 340V400H0Z" fill="#0f1a0c"/>
+<path d="M250 290H600V400H250Z" fill="#132009"/>
+<g><rect x="300" y="286" width="230" height="14" fill="#e9e3d4"/><rect x="316" y="238" width="196" height="48" fill="#3a2b1e"/><rect x="322" y="244" width="184" height="36" fill="#f0b968" opacity=".85"/><g stroke="#3a2b1e" stroke-width="3"><path d="M368 244v36M414 244v36M460 244v36"/></g>
+<path d="M300 238H532L512 226H320Z" fill="#f4efe3"/><rect x="350" y="200" width="130" height="28" fill="#2b1f16"/><rect x="356" y="205" width="118" height="18" fill="#f0b968" opacity=".8"/><path d="M336 200H494L470 184H360Z" fill="#f4efe3"/>
+<rect x="330" y="300" width="150" height="9" fill="#6fa3a8" opacity=".8"/></g>
+<use href="#palm" transform="translate(70 400) scale(1.5)"/><use href="#palm" transform="translate(560 400) scale(1.9)"/><use href="#palm" transform="translate(255 330) scale(.7)"/>
+</symbol></defs></svg>
+
+<nav><div class="wrap"><a href="#top" class="logo">Ondine</a>
+<ul><li><a href="#props">Estates</a></li><li><a href="#change">Impact</a></li><li><a href="#invest">Returns</a></li><li><a href="#where">Locations</a></li></ul>
+<a href="#invest" class="pill solid" data-c="Go">2026 release</a></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<h1><span class="ln"><span>Sustainable luxury</span></span><span class="ln"><span>in Thailand</span></span></h1>
+<div class="stage" id="stage">
+<a href="#end" class="pill solid cta" data-mag>Request brochure</a>
+<svg class="blob" viewBox="0 0 1000 440" aria-label="Villa above the Andaman Sea"><clipPath id="bl"><path d="M14 130C110 20 250 96 380 64S620 6 770 54S984 36 984 200S940 350 800 356S560 410 420 376S200 410 86 336S-26 226 14 130Z"/></clipPath>
+<g clip-path="url(#bl)"><g id="par"><use href="#sc" x="-40" y="-20" width="1080" height="490"/></g></g></svg></div>
+<div class="chips"><span class="pill">Solar-positive</span><span class="pill">Reef-safe builds</span><span class="pill">Freehold options</span></div>
+<div class="stats"><div><b data-n="38">0</b><span>Estates</span></div><div><b data-n="9.2" data-s="%">0</b><span>Average net yield</span></div><div><b data-n="100" data-s="%">0</b><span>Solar-positive</span></div><div><b data-n="1240" data-s="t">0</b><span>CO₂ avoided yearly</span></div></div>
+</div></header>
+
+<section id="props"><div class="wrap">
+<div class="head rv"><h2>Our estates</h2><div class="filters" id="fl"><button class="on" data-f="all">All</button><button data-f="villa">Villas</button><button data-f="beach">Beachfront</button><button data-f="estate">Estates</button></div></div>
+<div class="grid" id="grid"></div></div></section>
+
+<section id="change"><div class="wrap">
+<div class="head rv"><h2>Before, after</h2><span style="color:var(--mut)">Drag to compare a Koh Samui rebuild</span></div>
+<div class="ba rv" id="ba" data-c="Drag" style="--p:50%"><svg class="a"><use href="#sc"/></svg><svg class="b"><use href="#sc"/></svg><em>Before</em><em>After</em><div class="hd"></div><input type="range" min="0" max="100" value="50" aria-label="Before and after slider"></div>
+</div></section>
+
+<section id="invest"><div class="wrap">
+<div class="head rv"><h2>Returns</h2></div>
+<div class="calc rv"><div class="pane"><span style="color:var(--mut)">You invest</span><div class="amt" id="amt">$850,000</div>
+<input class="r" id="rng" type="range" min="250000" max="5000000" step="50000" value="850000" aria-label="Investment amount">
+<div class="yrs" id="yrs"><button data-y="3">3 yrs</button><button data-y="5" class="on">5 yrs</button><button data-y="10">10 yrs</button></div></div>
+<div class="pane"><span style="color:var(--mut)">Projected value</span><div class="res" id="res">$0</div>
+<svg id="ch" viewBox="0 0 600 220"><path id="ar" fill="rgba(194,167,106,.12)"/><path id="ln" fill="none" stroke="#c2a76a" stroke-width="2.5"/><g id="ax" fill="#8a8578" font-size="12"></g></svg></div></div>
+</div></section>
+
+<section id="where"><div class="wrap">
+<div class="head rv"><h2>Locations</h2></div>
+<div class="map rv"><div class="mp"><svg viewBox="0 0 600 420"><rect width="600" height="420" fill="#0b0b0a"/>
+<path d="M0 0H600V420H0Z" fill="none"/><g stroke="#1a1a17" stroke-width="1"><path d="M0 100H600M0 210H600M0 320H600M120 0V420M260 0V420M400 0V420M520 0V420"/></g>
+<path d="M330 0C300 70 360 130 320 200S250 300 300 420H600V0Z" fill="#171a12" stroke="#2a3320" stroke-width="2"/><path d="M0 0H330C300 70 360 130 320 200S250 300 300 420H0Z" fill="#06121a"/>
+<g id="pins"></g></svg></div>
+<div class="loc" id="loc"></div></div></div></section>
+
+<section><div class="wrap"><div class="q rv">
+<figure><blockquote>Zero utility bills in year one. The villa pays for itself in shade and sun.</blockquote><figcaption>Mara Lindqvist, Phuket owner</figcaption></figure>
+<figure><blockquote>Rental bookings beat every nearby listing. Guests ask about the roof gardens.</blockquote><figcaption>Kenji Aoyama, Koh Samui</figcaption></figure>
+<figure><blockquote>Handover took nine months. Not a single reef complaint.</blockquote><figcaption>Priya Nair, Krabi</figcaption></figure></div></div></section>
+
+<footer class="end" id="end"><div class="wrap"><h2>Invest today</h2>
+<div class="row"><a class="pill" href="#top" data-mag>Request brochure</a><a class="pill solid" href="#where" data-mag>Book a viewing</a></div>
+<p>Ondine Estates is a fictional brand created for this design.</p></div></footer>
+
+<div class="md" id="md" role="dialog" aria-modal="true"><div class="sheet" style="position:relative"><button class="x" id="cx" aria-label="Close">✕</button><div class="pic" id="mp"></div><div class="tx" id="mt"></div></div></div>
+
+<script>
+const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
+const P=[
+{n:"Villa Sala",r:"Phuket",t:"villa",p:850,b:5,m:640,y:9.4,e:92,h:0,v:"0 40 600 360"},
+{n:"Tide House",r:"Koh Samui",t:"beach",p:1200,b:4,m:520,y:8.8,e:88,h:-25,v:"180 120 420 280"},
+{n:"Canopy Lodge",r:"Krabi",t:"estate",p:2100,b:7,m:1180,y:10.1,e:97,h:35,v:"0 0 380 260"},
+{n:"Reef Terrace",r:"Hua Hin",t:"beach",p:690,b:3,m:410,y:8.2,e:84,h:55,v:"220 90 380 250"},
+{n:"Sala Ridge",r:"Phuket",t:"estate",p:3400,b:9,m:1760,y:9.7,e:95,h:-45,v:"60 60 480 320"}];
+const L=[["Phuket",0.34,0.2,"1.8 hrs","$/m²","4,900","38"],["Koh Samui",0.46,0.58,"2.4 hrs","$/m²","4,300","24"],["Krabi",0.22,0.72,"2.0 hrs","$/m²","3,600","17"],["Hua Hin",0.14,0.36,"3.1 hrs","$/m²","3,100","11"]];
+const sc=(v,h)=>`<svg viewBox="${v}" preserveAspectRatio="xMidYMid slice" style="filter:hue-rotate(${h}deg)"><use href="#sc" width="600" height="400"/></svg>`;
+const g=$('#grid');let html='';
+const dt=(a,b,w,txt)=>`<div class="card data rv" style="--w:${w}%"><div><b style="font:300 24px var(--d)">Before, after</b><p>${txt}</p></div><div><div class="big">${a}</div><p>${b}</p><div class="bar"><i></i></div></div></div>`;
+const D=[["60%","Less grid energy",60,"Passive cooling retrofit"],["210%","Rental uplift",100,"Post-renovation"],["310%","Water reuse",100,"Greywater loops"],["510%","Canopy growth",100,"Native replanting"]];
+P.forEach((p,i)=>{html+=`<button class="card rv" data-t="${p.t}" data-i="${i}" data-c="View">${sc(p.v,p.h)}<div class="in"><small>${p.r}</small><h3>${p.n}</h3><div class="r"><span>$${(p.p/1000).toFixed(2)}M</span><span class="y">${p.y}%</span></div></div></button>`;
+if(D[i])html+=dt(D[i][0],D[i][1],D[i][2],D[i][3])});
+g.innerHTML=html;
+/* filters */
+$('#fl').onclick=e=>{const f=e.target.dataset.f;if(!f)return;$$('#fl button').forEach(b=>b.classList.toggle('on',b===e.target));
+$$('.card',g).forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.t!==f))};
+/* modal */
+const md=$('#md');
+g.onclick=e=>{const c=e.target.closest('.card[data-i]');if(!c)return;const p=P[c.dataset.i];
+$('#mp').innerHTML=sc(p.v,p.h);
+$('#mt').innerHTML=`<small style="color:var(--mut)">${p.r}</small><h3>${p.n}</h3><div class="price">$${(p.p/1000).toFixed(2)}M</div>
+<div class="spec"><div><b>${p.b}</b><span>Bedrooms</span></div><div><b>${p.m}</b><span>m² built</span></div><div><b>${p.y}%</b><span>Net yield</span></div></div>
+<div class="m">Energy positive<div class="t"><i data-w="${p.e}"></i></div></div><div class="m">Local materials<div class="t"><i data-w="${p.e-12}"></i></div></div><div class="m">Water reuse<div class="t"><i data-w="${p.e-6}"></i></div></div>
+<a class="pill solid" href="#end" style="margin-top:14px" onclick="cl()">Book a viewing</a>`;
+md.classList.add('open');requestAnimationFrame(()=>$$('#mt i').forEach(i=>i.style.width=i.dataset.w+'%'))};
+const cl=()=>md.classList.remove('open');$('#cx').onclick=cl;md.onclick=e=>{if(e.target===md)cl()};addEventListener('keydown',e=>e.key==='Escape'&&cl());
+/* before/after */
+$('#ba input').oninput=e=>$('#ba').style.setProperty('--p',e.target.value+'%');
+/* calculator */
+let yrs=5;const f$=n=>'$'+Math.round(n).toLocaleString('en-US');const val=(P0,y)=>P0*Math.pow(1.07,y)+P0*.062*y;
+let shown=0;function calc(){const P0=+$('#rng').value;$('#amt').textContent=f$(P0);
+const to=val(P0,yrs),s=shown,t0=performance.now();(function st(t){const k=Math.min(1,(t-t0)/600);shown=s+(to-s)*(1-Math.pow(1-k,3));$('#res').textContent=f$(shown);if(k<1)requestAnimationFrame(st)})(t0);
+const mx=val(5e6,10),pts=[];for(let i=0;i<=yrs;i++){pts.push([20+i/yrs*560,190-(val(P0,i)/mx)*(170)*1.0])}
+const d='M'+pts.map(p=>p.join(' ')).join('L');$('#ln').setAttribute('d',d);$('#ar').setAttribute('d',d+`L580 200L20 200Z`);
+$('#ax').innerHTML=pts.map((p,i)=>`<text x="${p[0]}" y="216" text-anchor="middle">Yr ${i}</text><circle cx="${p[0]}" cy="${p[1]}" r="4" fill="#c2a76a"/>`).join('')}
+$('#rng').oninput=calc;$('#yrs').onclick=e=>{if(!e.target.dataset.y)return;yrs=+e.target.dataset.y;$$('#yrs button').forEach(b=>b.classList.toggle('on',b===e.target));calc()};calc();
+/* map */
+const pn=$('#pins');pn.innerHTML=L.map((l,i)=>`<g class="pin" data-i="${i}" tabindex="0" role="button" aria-label="${l[0]}" transform="translate(${l[1]*600} ${l[2]*420})" data-c="${l[0]}"><circle class="h" r="8"/><circle class="c" r="7" fill="#c2a76a"/><text x="14" y="5" fill="#ece6d8" font-size="14" font-family="Figtree,sans-serif">${l[0]}</text></g>`).join('');
+function loc(i){const l=L[i];$$('.pin').forEach((p,j)=>p.classList.toggle('on',i===j));
+$('#loc').innerHTML=`<h3>${l[0]}</h3><dl><div><dt>From Bangkok</dt><dd>${l[3]}</dd></div><div><dt>Avg. price per m²</dt><dd>$${l[5]}</dd></div><div><dt>Estates</dt><dd>${l[6]}</dd></div><div><dt>Beach</dt><dd>${i<2?'Direct':'5 min'}</dd></div></dl>`}
+pn.onclick=e=>{const p=e.target.closest('.pin');p&&loc(+p.dataset.i)};pn.onkeydown=e=>{if(e.key==='Enter'){const p=e.target.closest('.pin');p&&loc(+p.dataset.i)}};loc(0);
+/* reveal + counters + scroll bar */
+const io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');if(x.target.classList.contains('data'))x.target.classList.add('in-v');io.unobserve(x.target)}}),{threshold:.15});
+$$('.rv').forEach(e=>io.observe(e));
+const co=new IntersectionObserver(en=>en.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,n=+el.dataset.n,s=el.dataset.s||'',t0=performance.now();
+(function st(t){const k=Math.min(1,(t-t0)/1600),v=n*(1-Math.pow(1-k,4));el.textContent=(n%1?v.toFixed(1):Math.round(v).toLocaleString())+s;if(k<1)requestAnimationFrame(st)})(t0);co.unobserve(el)}),{threshold:.6});
+$$('[data-n]').forEach(e=>co.observe(e));
+addEventListener('scroll',()=>{$('#bar').style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%'},{passive:true});
+/* cursor, magnet, parallax, tilt */
+const cu=$('#cur');let mx=0,my=0,cx=0,cy=0;
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;const t=e.target.closest('[data-c]');cu.classList.toggle('big',!!t);if(t)$('#cl').textContent=t.dataset.c;
+const s=$('#stage').getBoundingClientRect();if(s.bottom>0&&s.top<innerHeight)$('#par').style.transform=`translate(${(e.clientX/innerWidth-.5)*-22}px,${(e.clientY/innerHeight-.5)*-14}px)`;
+const c=e.target.closest('.card[data-i]');if(c){const r=c.getBoundingClientRect();c.style.transform=`perspective(800px) rotateY(${((e.clientX-r.left)/r.width-.5)*8}deg) rotateX(${-((e.clientY-r.top)/r.height-.5)*8}deg)`}
+$$('.card[data-i]').forEach(k=>{if(k!==c)k.style.transform=''});
+const m=e.target.closest('[data-mag]');$$('[data-mag]').forEach(b=>{if(b!==m)b.style.transform=b.classList.contains('cta')?'translate(-50%,-50%)':''});
+if(m){const r=m.getBoundingClientRect(),o=m.classList.contains('cta')?'translate(-50%,-50%) ':'';m.style.transform=`${o}translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.4}px)`}});
+(function lp(){cx+=(mx-cx)*.2;cy+=(my-cy)*.2;cu.style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(lp)})();
+</script></body></html>
