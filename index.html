@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-/* Homepage web portfolio */
+/* Homepage web + video portfolio */
 .home-portfolio { padding-top: 0; }
 .home-portfolio .section-head { margin-bottom: 42px; }
 .home-portfolio-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
@@ -28,8 +28,26 @@
 .view-more-wrap { margin-top:32px; display:flex; justify-content:flex-end; }
 .view-more-link { display:inline-flex; align-items:center; gap:9px; color:var(--ink); text-decoration:none; font-size:13px; letter-spacing:.04em; border-bottom:1px solid rgba(255,255,255,.3); padding-bottom:6px; transition:gap .25s ease,border-color .25s ease; }
 .view-more-link:hover { gap:14px; border-color:var(--ink); }
-@media (max-width:900px) { .home-portfolio-grid { grid-template-columns:1fr; gap:34px; } .home-project-preview { height:360px; } }
-@media (max-width:600px) { .home-project-preview { height:270px; } .home-project-overlay { opacity:1; } }
+.video-partners { margin-top: 110px; }
+.video-partner { padding: 56px 0; border-top:1px solid rgba(255,255,255,.09); }
+.video-partner:first-child { border-top:0; }
+.video-partner-head { display:flex; justify-content:space-between; gap:30px; align-items:flex-end; margin-bottom:28px; }
+.video-partner-copy { max-width:720px; }
+.video-partner-copy h3 { margin:0 0 9px; font-size:clamp(28px,4vw,46px); }
+.video-partner-copy p { margin:0; max-width:650px; color:var(--ink-dim); font-size:15px; line-height:1.7; }
+.video-partner-link { flex:0 0 auto; }
+.video-work-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.video-work-card { position:relative; display:block; overflow:hidden; min-height:260px; background:#111; border:1px solid rgba(255,255,255,.08); color:inherit; text-decoration:none; }
+.video-work-card video { display:block; width:100%; height:320px; object-fit:cover; background:#111; }
+.video-work-card iframe { display:block; width:100%; height:320px; border:0; background:#111; pointer-events:none; }
+.video-work-card .video-work-label { padding:14px 15px; border-top:1px solid rgba(255,255,255,.08); }
+.video-work-card .video-work-label span { display:block; color:var(--ink-dim); font-size:12px; margin-top:4px; }
+.video-work-card .video-work-overlay { position:absolute; inset:0 0 52px 0; display:flex; align-items:center; justify-content:center; opacity:0; background:rgba(0,0,0,.28); transition:opacity .25s ease; }
+.video-work-card:hover .video-work-overlay { opacity:1; }
+.video-work-card .video-work-overlay span { border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:10px 14px; font-size:12px; background:rgba(0,0,0,.28); backdrop-filter:blur(7px); }
+.video-partner-note { margin-top:18px; color:var(--ink-dim); font-size:12px; }
+@media (max-width:900px) { .home-portfolio-grid,.video-work-grid { grid-template-columns:1fr; gap:34px; } .home-project-preview { height:360px; } .video-partner-head { align-items:flex-start; flex-direction:column; } .video-work-card video,.video-work-card iframe { height:360px; } }
+@media (max-width:600px) { .home-project-preview { height:270px; } .home-project-overlay { opacity:1; } .video-work-card video,.video-work-card iframe { height:270px; } .video-partner { padding:42px 0; } }
 </style>
 </head>
 <body>
@@ -101,6 +119,62 @@
       </a>
     </div>
     <div class="view-more-wrap"><a class="view-more-link" href="services/web-design.html">View more web design work <span>→</span></a></div>
+  </div>
+</section>
+
+<section class="video-partners" id="video-work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">02 / Photo &amp; Video Editing</span>
+      <h2>Selected editors &amp; creative partners</h2>
+      <p>Different specialists for different editing styles, brought together under RaeiGaze.</p>
+    </div>
+
+    <div class="video-partner">
+      <div class="video-partner-head">
+        <div class="video-partner-copy">
+          <h3>Hunter</h3>
+          <p>SaaS specialist &amp; motion graphics expert, focused on polished product edits, launch content, and high-impact visual storytelling.</p>
+        </div>
+        <a class="view-more-link video-partner-link" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Watch more from Hunter <span>↗</span></a>
+      </div>
+      <div class="video-work-grid">
+        <a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-01.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-01.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Launch Day Hook</strong><span>SaaS / Motion</span></div></a>
+        <a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-02.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-02.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Onboarding Flow Cut</strong><span>SaaS / Motion</span></div></a>
+        <a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-03.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-03.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Feature Drop Reel</strong><span>SaaS / Motion</span></div></a>
+      </div>
+    </div>
+
+    <div class="video-partner">
+      <div class="video-partner-head">
+        <div class="video-partner-copy">
+          <h3>Madt</h3>
+          <p>Independent video editor and creative specialist. Explore Madt's portfolio for a broader look at their editing work and style.</p>
+        </div>
+        <a class="view-more-link video-partner-link" href="https://madtladt.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Watch more from Madt <span>↗</span></a>
+      </div>
+      <div class="video-work-grid">
+        <a class="video-work-card" href="https://madtladt.github.io/portfolio/" target="_blank" rel="noopener noreferrer"><iframe src="https://madtladt.github.io/portfolio/" title="Madt portfolio preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Madt's portfolio ↗</span></div><div class="video-work-label"><strong>Selected work</strong><span>View portfolio</span></div></a>
+      </div>
+    </div>
+
+    <div class="video-partner">
+      <div class="video-partner-head">
+        <div class="video-partner-copy">
+          <h3>Cinemora</h3>
+          <p>Agency partner for broader video editing and motion work, giving RaeiGaze access to a wider production capability.</p>
+        </div>
+        <a class="view-more-link video-partner-link" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer">Visit Cinemora <span>↗</span></a>
+      </div>
+      <div class="video-work-grid">
+        <a class="video-work-card" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer"><iframe src="https://cinemora.agency/motion/explainers" title="Cinemora motion explainers preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Cinemora ↗</span></div><div class="video-work-label"><strong>Motion / Explainers</strong><span>Selected work</span></div></a>
+        <a class="video-work-card" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer"><iframe src="https://cinemora.agency/motion/graphics" title="Cinemora motion graphics preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Cinemora ↗</span></div><div class="video-work-label"><strong>Motion Graphics</strong><span>Selected work</span></div></a>
+        <a class="video-work-card" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer"><iframe src="https://cinemora.agency/short-form/gaming" title="Cinemora gaming short-form preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Cinemora ↗</span></div><div class="video-work-label"><strong>Short-form / Gaming</strong><span>Selected work</span></div></a>
+      </div>
+      <p class="video-partner-note">Partnered with Cinemora.</p>
+    </div>
+
+    <div class="view-more-wrap"><a class="view-more-link" href="services/photo-video-editing.html">View more photo &amp; video editing work <span>→</span></a></div>
   </div>
 </section>
 
