@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="../assets/style.css">
 <style>
 .portfolio-grid.real-projects { align-items: stretch; }
-.real-project-card { display:block; overflow:hidden; color:inherit; text-decoration:none; min-width:0; }
-.real-project-preview { position:relative; width:100%; height:360px; overflow:hidden; background:#111; border:1px solid rgba(255,255,255,.08); border-radius:2px; isolation:isolate; }
+.real-project-card { display:block; overflow:hidden; color:inherit; text-decoration:none; min-width:0; border-radius:14px; }
+.real-project-preview { position:relative; width:100%; height:360px; overflow:hidden; background:#111; border:1px solid rgba(255,255,255,.08); border-radius:14px; isolation:isolate; }
 .real-project-preview::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(to bottom, transparent 55%, rgba(0,0,0,.5)); }
 .real-project-preview iframe { position:absolute; left:0; top:-78px; width:100%; height:calc(100% + 78px); border:0; pointer-events:none; transform-origin:top left; }
 .real-project-overlay { position:absolute; z-index:3; inset:0; display:flex; align-items:flex-end; justify-content:flex-end; padding:22px; background:linear-gradient(to top,rgba(0,0,0,.62),transparent 55%); opacity:0; transition:opacity .3s ease; }
@@ -19,82 +19,26 @@
 .real-project-card:hover .real-project-overlay { opacity:1; }
 .real-project-card:hover .real-project-preview { border-color:rgba(255,255,255,.22); }
 .real-project-card .portfolio-body { position:relative; padding-top:18px; }
-@media (max-width:900px) { .real-project-preview { height:330px; } }
+.nav-projects { position:relative; }
+.nav-projects > a { display:flex; align-items:center; gap:6px; }
+.nav-projects > a::after { content:"⌄"; font-size:11px; opacity:.65; transform:translateY(-1px); }
+.projects-dropdown { position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%) translateY(-5px); min-width:230px; padding:8px; background:rgba(12,12,12,.97); border:1px solid rgba(255,255,255,.12); border-radius:12px; box-shadow:0 18px 45px rgba(0,0,0,.35); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s ease,transform .2s ease,visibility .2s ease; z-index:50; }
+.nav-projects:hover .projects-dropdown,.nav-projects:focus-within .projects-dropdown { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+.projects-dropdown a { display:block; padding:11px 12px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:12px; line-height:1.3; }
+.projects-dropdown a:hover { background:rgba(255,255,255,.07); }
+.projects-dropdown a span { display:block; color:var(--ink-dim); font-size:10px; margin-top:4px; }
+@media (max-width:900px) { .real-project-preview { height:330px; } .nav-projects .projects-dropdown { position:static; transform:none; min-width:0; margin:8px 0 0; display:none; opacity:1; visibility:visible; pointer-events:auto; box-shadow:none; } .nav-projects:focus-within .projects-dropdown,.nav-projects:hover .projects-dropdown { display:block; transform:none; } }
 @media (max-width:700px) { .real-project-preview { height:270px; } .real-project-preview iframe { top:-68px; height:calc(100% + 68px); } .real-project-overlay { opacity:1; } }
 </style>
 </head>
 <body>
-
-<div class="grain"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<header id="site-header">
-  <div class="wrap">
-    <nav>
-      <a href="../index.html" class="logo">raeigaze</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../services.html" class="active">Services</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html" class="btn btn-ghost">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span></button>
-    </nav>
-  </div>
-</header>
-
-<section class="page-hero">
-  <div class="page-hero-glow"></div>
-  <div class="wrap">
-    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../services.html">Services</a> / Web Design & Development</div>
-    <span class="eyebrow">Service 01</span>
-    <h1 style="margin-top:20px;">Web Design &amp; Development</h1>
-    <p>A site that works as hard as your sales team</p>
-  </div>
-</section>
-
+<div class="grain"></div><div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
+<header id="site-header"><div class="wrap"><nav><a href="../index.html" class="logo">raeigaze</a><ul class="nav-links" id="navLinks"><li><a href="../index.html">Home</a></li><li><a href="../services.html" class="active">Services</a></li><li class="nav-projects"><a href="#projects">Projects</a><div class="projects-dropdown"><a href="web-design.html">Web Design &amp; Development<span>View website projects</span></a><a href="photo-video-editing.html">Video Editing<span>View editing projects</span></a></div></li><li><a href="../about.html">About</a></li><li><a href="../contact.html" class="btn btn-ghost">Contact</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span></button></nav></div></header>
+<section class="page-hero"><div class="page-hero-glow"></div><div class="wrap"><div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../services.html">Services</a> / Web Design & Development</div><span class="eyebrow">Service 01</span><h1 style="margin-top:20px;">Web Design &amp; Development</h1><p>A site that works as hard as your sales team</p></div></section>
 <section style="padding-top:0;"><div class="wrap"><p style="max-width:70ch; font-size:17px; color:var(--ink-dim); line-height:1.75;">Your website is often the first real interaction someone has with your business, and the deciding factor in whether they trust you enough to reach out. We design and build fast, mobile-perfect sites structured around a clear path to inquiry &mdash; not just decoration.</p></div></section>
-
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="section-head"><span class="eyebrow">How This Grows Your Business</span><h2>Real impact, not just deliverables</h2></div>
-    <div class="impact-grid">
-      <div class="impact-card"><span class="impact-icon">i.</span><div><h4>Higher Conversion</h4><p>Clear calls-to-action and intentional page flow turn more visitors into actual leads, not just page views.</p></div></div>
-      <div class="impact-card"><span class="impact-icon">ii.</span><div><h4>Faster Load Times</h4><p>Lightweight, optimized builds mean fewer visitors bounce before the page even finishes loading.</p></div></div>
-      <div class="impact-card"><span class="impact-icon">iii.</span><div><h4>Stronger First Impression</h4><p>A premium-looking site signals credibility before a single word is read.</p></div></div>
-      <div class="impact-card"><span class="impact-icon">iv.</span><div><h4>Built To Scale</h4><p>Clean structure means adding pages, services, or a store later doesn't mean rebuilding from scratch.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="section-head"><span class="eyebrow">Portfolio</span><h2>A look at work in this category</h2><p>Selected websites we've built. Open any project to explore the full site.</p></div>
-    <div class="portfolio-grid real-projects">
-      <a class="portfolio-card real-project-card" href="https://haya-and-hues-04.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Haya & Hues website">
-        <div class="real-project-preview"><iframe src="https://haya-and-hues-04.vercel.app/" title="Haya & Hues website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div>
-        <div class="portfolio-body"><h4>Haya &amp; Hues</h4><p>Fashion and lifestyle website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div>
-      </a>
-      <a class="portfolio-card real-project-card" href="../assets/ondine-estates.html" target="_blank" rel="noopener noreferrer" aria-label="Open Ondine Estates website">
-        <div class="real-project-preview"><iframe src="../assets/ondine-estates.html" title="Ondine Estates website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div>
-        <div class="portfolio-body"><h4>Ondine Estates</h4><p>Sustainable luxury real estate website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div>
-      </a>
-      <a class="portfolio-card real-project-card" href="../project02/ivory-courtyard.html" target="_blank" rel="noopener noreferrer" aria-label="Open Ivory Courtyard website">
-        <div class="real-project-preview"><iframe src="../project02/ivory-courtyard.html" title="Ivory Courtyard website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div>
-        <div class="portfolio-body"><h4>Ivory Courtyard</h4><p>Luxury hospitality website concept.</p><span class="portfolio-tag">Web Design</span></div>
-      </a>
-      <a class="portfolio-card real-project-card" href="../project03/index.html" target="_blank" rel="noopener noreferrer" aria-label="Open Exotics Max website">
-        <div class="real-project-preview"><iframe src="../project03/index.html" title="Exotics Max website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div>
-        <div class="portfolio-body"><h4>Exotics Max</h4><p>Premium automotive concierge website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
+<section style="padding-top:0;"><div class="wrap"><div class="section-head"><span class="eyebrow">How This Grows Your Business</span><h2>Real impact, not just deliverables</h2></div><div class="impact-grid"><div class="impact-card"><span class="impact-icon">i.</span><div><h4>Higher Conversion</h4><p>Clear calls-to-action and intentional page flow turn more visitors into actual leads, not just page views.</p></div></div><div class="impact-card"><span class="impact-icon">ii.</span><div><h4>Faster Load Times</h4><p>Lightweight, optimized builds mean fewer visitors bounce before the page even finishes loading.</p></div></div><div class="impact-card"><span class="impact-icon">iii.</span><div><h4>Stronger First Impression</h4><p>A premium-looking site signals credibility before a single word is read.</p></div></div><div class="impact-card"><span class="impact-icon">iv.</span><div><h4>Built To Scale</h4><p>Clean structure means adding pages, services, or a store later doesn't mean rebuilding from scratch.</p></div></div></div></div></section>
+<section style="padding-top:0;"><div class="wrap"><div class="section-head"><span class="eyebrow">Portfolio</span><h2>A look at work in this category</h2><p>Selected websites we've built. Open any project to explore the full site.</p></div><div class="portfolio-grid real-projects"><a class="portfolio-card real-project-card" href="https://haya-and-hues-04.vercel.app/" target="_blank" rel="noopener noreferrer"><div class="real-project-preview"><iframe src="https://haya-and-hues-04.vercel.app/" title="Haya & Hues website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div><div class="portfolio-body"><h4>Haya &amp; Hues</h4><p>Fashion and lifestyle website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div></a><a class="portfolio-card real-project-card" href="../assets/ondine-estates.html" target="_blank" rel="noopener noreferrer"><div class="real-project-preview"><iframe src="../assets/ondine-estates.html" title="Ondine Estates website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div><div class="portfolio-body"><h4>Ondine Estates</h4><p>Sustainable luxury real estate website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div></a><a class="portfolio-card real-project-card" href="../project02/ivory-courtyard.html" target="_blank" rel="noopener noreferrer"><div class="real-project-preview"><iframe src="../project02/ivory-courtyard.html" title="Ivory Courtyard website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div><div class="portfolio-body"><h4>Ivory Courtyard</h4><p>Luxury hospitality website concept.</p><span class="portfolio-tag">Web Design</span></div></a><a class="portfolio-card real-project-card" href="../project03/index.html" target="_blank" rel="noopener noreferrer"><div class="real-project-preview"><iframe src="../project03/index.html" title="Exotics Max website preview" loading="lazy" tabindex="-1"></iframe><div class="real-project-overlay"><span>Open Project ↗</span></div></div><div class="portfolio-body"><h4>Exotics Max</h4><p>Premium automotive concierge website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div></a></div></div></section>
 <section class="cta"><div class="wrap cta-wrap"><span class="eyebrow">Interested In This Service?</span><h2>Let's talk about what web design & development could do for your business</h2><p>No generic packages &mdash; just a plan built around your goals.</p><a href="../contact.html" class="btn btn-solid">Get In Touch</a></div></section>
-
-<footer><div class="wrap footer-inner"><a href="../index.html" class="logo">raeigaze</a><span class="footer-copy">&copy; <span id="year"></span> RaeiGaze. All Rights Reserved.</span></div></footer>
-<script src="../assets/script.js"></script>
+<footer><div class="wrap footer-inner"><a href="../index.html" class="logo">raeigaze</a><span class="footer-copy">&copy; <span id="year"></span> RaeiGaze. All Rights Reserved.</span></div></footer><script src="../assets/script.js"></script>
 </body>
 </html>
