@@ -10,11 +10,11 @@
 <link rel="stylesheet" href="assets/style.css">
 <style>
 /* Homepage web + video portfolio */
-.home-portfolio { padding-top: 0; }
+.home-portfolio { padding-top: 0; padding-bottom: 18px; }
 .home-portfolio .section-head { margin-bottom: 42px; }
 .home-portfolio-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
-.home-project-card { display:block; color:inherit; text-decoration:none; min-width:0; }
-.home-project-preview { position:relative; height:320px; overflow:hidden; background:#111; border:1px solid rgba(255,255,255,.08); border-radius:2px; isolation:isolate; }
+.home-project-card { display:block; color:inherit; text-decoration:none; min-width:0; border-radius:14px; overflow:hidden; }
+.home-project-preview { position:relative; height:320px; overflow:hidden; background:#111; border:1px solid rgba(255,255,255,.08); border-radius:14px; isolation:isolate; }
 .home-project-preview iframe { position:absolute; left:0; top:-86px; width:100%; height:calc(100% + 86px); border:0; pointer-events:none; transform-origin:top left; }
 .home-project-preview::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(to bottom, transparent 62%, rgba(0,0,0,.45)); }
 .home-project-overlay { position:absolute; z-index:3; inset:0; display:flex; align-items:flex-end; justify-content:flex-end; padding:20px; opacity:0; transition:opacity .3s ease; background:linear-gradient(to top,rgba(0,0,0,.58),transparent 55%); }
@@ -28,8 +28,8 @@
 .view-more-wrap { margin-top:32px; display:flex; justify-content:flex-end; }
 .view-more-link { display:inline-flex; align-items:center; gap:9px; color:var(--ink); text-decoration:none; font-size:13px; letter-spacing:.04em; border-bottom:1px solid rgba(255,255,255,.3); padding-bottom:6px; transition:gap .25s ease,border-color .25s ease; }
 .view-more-link:hover { gap:14px; border-color:var(--ink); }
-.video-partners { margin-top: 110px; }
-.video-partner { padding: 56px 0; border-top:1px solid rgba(255,255,255,.09); }
+.video-partners { margin-top: 8px; }
+.video-partner { padding: 48px 0; border-top:1px solid rgba(255,255,255,.09); }
 .video-partner:first-child { border-top:0; }
 .video-partner-head { display:flex; justify-content:space-between; gap:30px; align-items:flex-end; margin-bottom:28px; }
 .video-partner-copy { max-width:720px; }
@@ -37,157 +37,43 @@
 .video-partner-copy p { margin:0; max-width:650px; color:var(--ink-dim); font-size:15px; line-height:1.7; }
 .video-partner-link { flex:0 0 auto; }
 .video-work-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
-.video-work-card { position:relative; display:block; overflow:hidden; min-height:260px; background:#111; border:1px solid rgba(255,255,255,.08); color:inherit; text-decoration:none; }
+.video-work-card { position:relative; display:block; overflow:hidden; min-height:260px; background:#111; border:1px solid rgba(255,255,255,.08); border-radius:14px; color:inherit; text-decoration:none; }
 .video-work-card video { display:block; width:100%; height:320px; object-fit:cover; background:#111; }
 .video-work-card iframe { display:block; width:100%; height:320px; border:0; background:#111; pointer-events:none; }
+.video-work-card.madt-card iframe { transform:scale(1.65); transform-origin:center center; }
 .video-work-card .video-work-label { padding:14px 15px; border-top:1px solid rgba(255,255,255,.08); }
 .video-work-card .video-work-label span { display:block; color:var(--ink-dim); font-size:12px; margin-top:4px; }
 .video-work-card .video-work-overlay { position:absolute; inset:0 0 52px 0; display:flex; align-items:center; justify-content:center; opacity:0; background:rgba(0,0,0,.28); transition:opacity .25s ease; }
 .video-work-card:hover .video-work-overlay { opacity:1; }
 .video-work-card .video-work-overlay span { border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:10px 14px; font-size:12px; background:rgba(0,0,0,.28); backdrop-filter:blur(7px); }
 .video-partner-note { margin-top:18px; color:var(--ink-dim); font-size:12px; }
-@media (max-width:900px) { .home-portfolio-grid,.video-work-grid { grid-template-columns:1fr; gap:34px; } .home-project-preview { height:360px; } .video-partner-head { align-items:flex-start; flex-direction:column; } .video-work-card video,.video-work-card iframe { height:360px; } }
-@media (max-width:600px) { .home-project-preview { height:270px; } .home-project-overlay { opacity:1; } .video-work-card video,.video-work-card iframe { height:270px; } .video-partner { padding:42px 0; } }
+.nav-projects { position:relative; }
+.nav-projects > a { display:flex; align-items:center; gap:6px; }
+.nav-projects > a::after { content:"⌄"; font-size:11px; opacity:.65; transform:translateY(-1px); }
+.projects-dropdown { position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%) translateY(-5px); min-width:230px; padding:8px; background:rgba(12,12,12,.97); border:1px solid rgba(255,255,255,.12); border-radius:12px; box-shadow:0 18px 45px rgba(0,0,0,.35); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .2s ease,transform .2s ease,visibility .2s ease; z-index:50; }
+.nav-projects:hover .projects-dropdown, .nav-projects:focus-within .projects-dropdown { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+.projects-dropdown a { display:block; padding:11px 12px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:12px; line-height:1.3; }
+.projects-dropdown a:hover { background:rgba(255,255,255,.07); }
+.projects-dropdown a span { display:block; color:var(--ink-dim); font-size:10px; margin-top:4px; }
+@media (max-width:900px) { .home-portfolio-grid,.video-work-grid { grid-template-columns:1fr; gap:34px; } .home-project-preview { height:360px; } .video-partner-head { align-items:flex-start; flex-direction:column; } .video-work-card video,.video-work-card iframe { height:360px; } .projects-dropdown { position:static; transform:none; min-width:0; margin:8px 0 0 0; display:none; opacity:1; visibility:visible; pointer-events:auto; box-shadow:none; } .nav-projects:focus-within .projects-dropdown,.nav-projects:hover .projects-dropdown { display:block; transform:none; } }
+@media (max-width:600px) { .home-project-preview { height:270px; } .home-project-overlay { opacity:1; } .video-work-card video,.video-work-card iframe { height:270px; } .video-partner { padding:38px 0; } }
 </style>
 </head>
 <body>
-
-<div class="grain"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<header id="site-header">
-  <div class="wrap">
-    <nav>
-      <a href="index.html" class="logo">raeigaze</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="btn btn-ghost">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span></button>
-    </nav>
-  </div>
-</header>
-
-<section class="hero" id="top">
-  <div class="dot-field"><canvas id="dotCanvas"></canvas></div>
-  <div class="wrap hero-inner">
-    <span class="eyebrow">Digital Services Agency</span>
-    <h1>Creating a <em>better</em><br>reality</h1>
-    <p class="hero-sub">Raeigaze is a strategy-driven digital agency built to help brands grow with clarity, creativity, and consistency &mdash; for you, and your demands.</p>
-    <div class="hero-cta"><a href="services.html" class="btn btn-solid">Explore Services</a><a href="contact.html" class="btn btn-ghost">Contact Us</a></div>
-    <div class="hero-meta"><div><strong>Fast</strong>Performance built for speed</div><div><strong>Clean</strong>UI &amp; UX with real intent</div><div><strong>Modern</strong>Visuals that hold attention</div></div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="wrap">
-    <div class="section-head"><span class="eyebrow">What We Do</span><h2>Services designed to match your vision</h2><p>Built to exceed expectations &mdash; each service pulled in only when your project actually needs it.</p></div>
-    <div class="services-list">
-      <a href="services/web-design.html" class="service-row"><span class="service-index">01</span><h3>Web Design &amp; Development</h3><p>Modern websites that feel premium and convert.</p><span class="service-arrow">&#8599;</span></a>
-      <a href="services/graphic-design.html" class="service-row"><span class="service-index">02</span><h3>Graphic Designing</h3><p>Logos, brand kits, posters, and digital designs.</p><span class="service-arrow">&#8599;</span></a>
-      <a href="services/photo-video-editing.html" class="service-row"><span class="service-index">03</span><h3>Photo &amp; Video Editing</h3><p>Cinematic edits, reels, ads, and professional visuals.</p><span class="service-arrow">&#8599;</span></a>
-      <a href="services/copywriting.html" class="service-row"><span class="service-index">04</span><h3>Copywriting</h3><p>Words that sell, persuade, and build trust.</p><span class="service-arrow">&#8599;</span></a>
-      <a href="services/content-writing.html" class="service-row"><span class="service-index">05</span><h3>Content Writing</h3><p>SEO content and professional brand writing.</p><span class="service-arrow">&#8599;</span></a>
-      <a href="services/creative-ghostwriting.html" class="service-row"><span class="service-index">06</span><h3>Creative &amp; Ghostwriting</h3><p>Stories, scripts, and writing with real depth.</p><span class="service-arrow">&#8599;</span></a>
-      <a href="services/ai-automation.html" class="service-row"><span class="service-index">07</span><h3>AI Automation</h3><p>Smart AI workflows to save time and boost output.</p><span class="service-arrow">&#8599;</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="home-portfolio" id="web-work">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">01 / Web Design &amp; Development</span>
-      <h2>Some of what we've built</h2>
-      <p>Three selected websites, built around different brands, audiences, and goals.</p>
-    </div>
-    <div class="home-portfolio-grid">
-      <a class="home-project-card" href="https://haya-and-hues-04.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Haya & Hues website">
-        <div class="home-project-preview"><iframe src="https://haya-and-hues-04.vercel.app/" title="Haya & Hues preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div>
-        <div class="home-project-info"><h4>Haya &amp; Hues</h4><p>Fashion and lifestyle website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div>
-      </a>
-      <a class="home-project-card" href="assets/ondine-estates.html" target="_blank" rel="noopener noreferrer" aria-label="Open Ondine Estates website">
-        <div class="home-project-preview"><iframe src="assets/ondine-estates.html" title="Ondine Estates preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div>
-        <div class="home-project-info"><h4>Ondine Estates</h4><p>Sustainable luxury real estate website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div>
-      </a>
-      <a class="home-project-card" href="project02/ivory-courtyard.html" target="_blank" rel="noopener noreferrer" aria-label="Open Ivory Courtyard website">
-        <div class="home-project-preview"><iframe src="project02/ivory-courtyard.html" title="Ivory Courtyard preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div>
-        <div class="home-project-info"><h4>Ivory Courtyard</h4><p>Luxury hospitality website concept.</p><span class="portfolio-tag">Web Design</span></div>
-      </a>
-    </div>
-    <div class="view-more-wrap"><a class="view-more-link" href="services/web-design.html">View more web design work <span>→</span></a></div>
-  </div>
-</section>
-
-<section class="video-partners" id="video-work">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">02 / Photo &amp; Video Editing</span>
-      <h2>Selected editors &amp; creative partners</h2>
-      <p>Different specialists for different editing styles, brought together under RaeiGaze.</p>
-    </div>
-
-    <div class="video-partner">
-      <div class="video-partner-head">
-        <div class="video-partner-copy">
-          <h3>Hunter</h3>
-          <p>SaaS specialist &amp; motion graphics expert, focused on polished product edits, launch content, and high-impact visual storytelling.</p>
-        </div>
-        <a class="view-more-link video-partner-link" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Watch more from Hunter <span>↗</span></a>
-      </div>
-      <div class="video-work-grid">
-        <a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-01.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-01.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Launch Day Hook</strong><span>SaaS / Motion</span></div></a>
-        <a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-02.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-02.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Onboarding Flow Cut</strong><span>SaaS / Motion</span></div></a>
-        <a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-03.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-03.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Feature Drop Reel</strong><span>SaaS / Motion</span></div></a>
-      </div>
-    </div>
-
-    <div class="video-partner">
-      <div class="video-partner-head">
-        <div class="video-partner-copy">
-          <h3>Madt</h3>
-          <p>Independent video editor and creative specialist. Explore Madt's portfolio for a broader look at their editing work and style.</p>
-        </div>
-        <a class="view-more-link video-partner-link" href="https://madtladt.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Watch more from Madt <span>↗</span></a>
-      </div>
-      <div class="video-work-grid">
-        <a class="video-work-card" href="https://madtladt.github.io/portfolio/" target="_blank" rel="noopener noreferrer"><iframe src="https://madtladt.github.io/portfolio/" title="Madt portfolio preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Madt's portfolio ↗</span></div><div class="video-work-label"><strong>Selected work</strong><span>View portfolio</span></div></a>
-      </div>
-    </div>
-
-    <div class="video-partner">
-      <div class="video-partner-head">
-        <div class="video-partner-copy">
-          <h3>Cinemora</h3>
-          <p>Agency partner for broader video editing and motion work, giving RaeiGaze access to a wider production capability.</p>
-        </div>
-        <a class="view-more-link video-partner-link" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer">Visit Cinemora <span>↗</span></a>
-      </div>
-      <div class="video-work-grid">
-        <a class="video-work-card" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer"><iframe src="https://cinemora.agency/motion/explainers" title="Cinemora motion explainers preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Cinemora ↗</span></div><div class="video-work-label"><strong>Motion / Explainers</strong><span>Selected work</span></div></a>
-        <a class="video-work-card" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer"><iframe src="https://cinemora.agency/motion/graphics" title="Cinemora motion graphics preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Cinemora ↗</span></div><div class="video-work-label"><strong>Motion Graphics</strong><span>Selected work</span></div></a>
-        <a class="video-work-card" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer"><iframe src="https://cinemora.agency/short-form/gaming" title="Cinemora gaming short-form preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Cinemora ↗</span></div><div class="video-work-label"><strong>Short-form / Gaming</strong><span>Selected work</span></div></a>
-      </div>
-      <p class="video-partner-note">Partnered with Cinemora.</p>
-    </div>
-
-    <div class="view-more-wrap"><a class="view-more-link" href="services/photo-video-editing.html">View more photo &amp; video editing work <span>→</span></a></div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap about"><div class="about-panel"><span>Jack of all trades,<br>master of each one.</span></div><div class="about-text"><span class="eyebrow" style="display:block; margin-bottom:20px;">Who We Are</span><p>Raeigaze is a strategist digital service agency focused on clear positioning, thoughtful design, and writing that converts.</p><p>We don't just create visuals or campaigns &mdash; we build systems that work specifically for your brand. Our agency operates with a carefully selected network of specialists across design, development, content, marketing, copywriting, and creative services, so you get the right expertise on every project without managing multiple people yourself.</p><p>We take full responsibility for planning, coordination, quality control, and delivery, so you can focus on running your business with confidence.</p><div class="pillars"><div class="pillar"><h4>Minimal</h4><p>We don't overload. We design with purpose.</p></div><div class="pillar"><h4>Premium</h4><p>Every component looks intentional.</p></div><div class="pillar"><h4>Strategic</h4><p>We build for growth without losing aesthetics.</p></div></div></div></div>
-</section>
-
+<div class="grain"></div><div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
+<header id="site-header"><div class="wrap"><nav><a href="index.html" class="logo">raeigaze</a><ul class="nav-links" id="navLinks"><li><a href="index.html" class="active">Home</a></li><li><a href="services.html">Services</a></li><li class="nav-projects"><a href="#projects">Projects</a><div class="projects-dropdown"><a href="services/web-design.html">Web Design &amp; Development<span>View website projects</span></a><a href="services/photo-video-editing.html">Video Editing<span>View editing projects</span></a></div></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="btn btn-ghost">Contact</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span></button></nav></div></header>
+<section class="hero" id="top"><div class="dot-field"><canvas id="dotCanvas"></canvas></div><div class="wrap hero-inner"><span class="eyebrow">Digital Services Agency</span><h1>Creating a <em>better</em><br>reality</h1><p class="hero-sub">Raeigaze is a strategy-driven digital agency built to help brands grow with clarity, creativity, and consistency &mdash; for you, and your demands.</p><div class="hero-cta"><a href="services.html" class="btn btn-solid">Explore Services</a><a href="contact.html" class="btn btn-ghost">Contact Us</a></div><div class="hero-meta"><div><strong>Fast</strong>Performance built for speed</div><div><strong>Clean</strong>UI &amp; UX with real intent</div><div><strong>Modern</strong>Visuals that hold attention</div></div></div></section>
+<section id="services"><div class="wrap"><div class="section-head"><span class="eyebrow">What We Do</span><h2>Services designed to match your vision</h2><p>Built to exceed expectations &mdash; each service pulled in only when your project actually needs it.</p></div><div class="services-list"><a href="services/web-design.html" class="service-row"><span class="service-index">01</span><h3>Web Design &amp; Development</h3><p>Modern websites that feel premium and convert.</p><span class="service-arrow">&#8599;</span></a><a href="services/graphic-design.html" class="service-row"><span class="service-index">02</span><h3>Graphic Designing</h3><p>Logos, brand kits, posters, and digital designs.</p><span class="service-arrow">&#8599;</span></a><a href="services/photo-video-editing.html" class="service-row"><span class="service-index">03</span><h3>Photo &amp; Video Editing</h3><p>Cinematic edits, reels, ads, and professional visuals.</p><span class="service-arrow">&#8599;</span></a><a href="services/copywriting.html" class="service-row"><span class="service-index">04</span><h3>Copywriting</h3><p>Words that sell, persuade, and build trust.</p><span class="service-arrow">&#8599;</span></a><a href="services/content-writing.html" class="service-row"><span class="service-index">05</span><h3>Content Writing</h3><p>SEO content and professional brand writing.</p><span class="service-arrow">&#8599;</span></a><a href="services/creative-ghostwriting.html" class="service-row"><span class="service-index">06</span><h3>Creative &amp; Ghostwriting</h3><p>Stories, scripts, and writing with real depth.</p><span class="service-arrow">&#8599;</span></a><a href="services/ai-automation.html" class="service-row"><span class="service-index">07</span><h3>AI Automation</h3><p>Smart AI workflows to save time and boost output.</p><span class="service-arrow">&#8599;</span></a></div></div></section>
+<section class="home-portfolio" id="web-work"><div class="wrap"><div class="section-head"><span class="eyebrow">01 / Web Design &amp; Development</span><h2>Some of what we've built</h2><p>Three selected websites, built around different brands, audiences, and goals.</p></div><div class="home-portfolio-grid"><a class="home-project-card" href="https://haya-and-hues-04.vercel.app/" target="_blank" rel="noopener noreferrer"><div class="home-project-preview"><iframe src="https://haya-and-hues-04.vercel.app/" title="Haya & Hues preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div><div class="home-project-info"><h4>Haya &amp; Hues</h4><p>Fashion and lifestyle website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div></a><a class="home-project-card" href="assets/ondine-estates.html" target="_blank" rel="noopener noreferrer"><div class="home-project-preview"><iframe src="assets/ondine-estates.html" title="Ondine Estates preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div><div class="home-project-info"><h4>Ondine Estates</h4><p>Sustainable luxury real estate website.</p><span class="portfolio-tag">Web Design &amp; Development</span></div></a><a class="home-project-card" href="project02/ivory-courtyard.html" target="_blank" rel="noopener noreferrer"><div class="home-project-preview"><iframe src="project02/ivory-courtyard.html" title="Ivory Courtyard preview" loading="lazy" tabindex="-1"></iframe><div class="home-project-overlay"><span>Open Project ↗</span></div></div><div class="home-project-info"><h4>Ivory Courtyard</h4><p>Luxury hospitality website concept.</p><span class="portfolio-tag">Web Design</span></div></a></div><div class="view-more-wrap"><a class="view-more-link" href="services/web-design.html">View more web design work <span>→</span></a></div></div></section>
+<section class="video-partners" id="video-work"><div class="wrap"><div class="section-head"><span class="eyebrow">02 / Photo &amp; Video Editing</span><h2>Selected editors &amp; creative partners</h2><p>Different specialists for different editing styles, brought together under RaeiGaze.</p></div>
+<div class="video-partner"><div class="video-partner-head"><div class="video-partner-copy"><h3>Hunter</h3><p>SaaS specialist &amp; motion graphics expert, focused on polished product edits, launch content, and high-impact visual storytelling.</p></div><a class="view-more-link video-partner-link" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Watch more from Hunter <span>↗</span></a></div><div class="video-work-grid"><a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-01.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-01.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Launch Day Hook</strong><span>SaaS / Motion</span></div></a><a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-02.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-02.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Onboarding Flow Cut</strong><span>SaaS / Motion</span></div></a><a class="video-work-card" href="https://hunter-s-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><video src="https://hunter-s-portfolio.vercel.app/videos/saas-03.mp4" poster="https://hunter-s-portfolio.vercel.app/posters/saas-03.jpg" muted loop playsinline autoplay preload="metadata"></video><div class="video-work-overlay"><span>Open Hunter's portfolio ↗</span></div><div class="video-work-label"><strong>Feature Drop Reel</strong><span>SaaS / Motion</span></div></a></div></div>
+<div class="video-partner"><div class="video-partner-head"><div class="video-partner-copy"><h3>Madt</h3><p>Independent video editor and creative specialist. Explore Madt's portfolio for a broader look at their editing work and style.</p></div><a class="view-more-link video-partner-link" href="https://madtladt.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Watch more from Madt <span>↗</span></a></div><div class="video-work-grid"><a class="video-work-card madt-card" href="https://madtladt.github.io/portfolio/" target="_blank" rel="noopener noreferrer"><iframe src="https://madtladt.github.io/portfolio/" title="Madt portfolio preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Madt's portfolio ↗</span></div><div class="video-work-label"><strong>Selected work</strong><span>View portfolio</span></div></a></div></div>
+<div class="video-partner"><div class="video-partner-head"><div class="video-partner-copy"><h3>Cinemora</h3><p>Agency partner for broader video editing and motion work, giving RaeiGaze access to a wider production capability.</p></div><a class="view-more-link video-partner-link" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer">Visit Cinemora <span>↗</span></a></div><div class="video-work-grid"><a class="video-work-card" href="https://cinemora.agency/" target="_blank" rel="noopener noreferrer"><iframe src="https://cinemora.agency/" title="Cinemora portfolio preview" loading="lazy"></iframe><div class="video-work-overlay"><span>Open Cinemora ↗</span></div><div class="video-work-label"><strong>Selected Agency Work</strong><span>Partnered with Cinemora</span></div></a></div><p class="video-partner-note">Partnered with Cinemora.</p></div>
+<div class="view-more-wrap"><a class="view-more-link" href="services/photo-video-editing.html">View more photo &amp; video editing work <span>→</span></a></div></div></section>
+<section id="about"><div class="wrap about"><div class="about-panel"><span>Jack of all trades,<br>master of each one.</span></div><div class="about-text"><span class="eyebrow" style="display:block; margin-bottom:20px;">Who We Are</span><p>Raeigaze is a strategist digital service agency focused on clear positioning, thoughtful design, and writing that converts.</p><p>We don't just create visuals or campaigns &mdash; we build systems that work specifically for your brand. Our agency operates with a carefully selected network of specialists across design, development, content, marketing, copywriting, and creative services, so you get the right expertise on every project without managing multiple people yourself.</p><p>We take full responsibility for planning, coordination, quality control, and delivery, so you can focus on running your business with confidence.</p><div class="pillars"><div class="pillar"><h4>Minimal</h4><p>We don't overload. We design with purpose.</p></div><div class="pillar"><h4>Premium</h4><p>Every component looks intentional.</p></div><div class="pillar"><h4>Strategic</h4><p>We build for growth without losing aesthetics.</p></div></div></div></div></section>
 <section id="process"><div class="wrap"><div class="section-head"><span class="eyebrow">How We Work</span><h2>A clean process, built for fast results</h2></div><div class="process-grid"><div class="process-step"><span class="num">i.</span><h3>Discovery</h3><p>We understand your vision, market, and demands.</p></div><div class="process-step"><span class="num">ii.</span><h3>Strategy</h3><p>We plan the best structure and content for your goals.</p></div><div class="process-step"><span class="num">iii.</span><h3>Execution</h3><p>We design and deliver premium output with precision.</p></div><div class="process-step"><span class="num">iv.</span><h3>Growth</h3><p>We help you stay ahead with modern solutions.</p></div></div></div></section>
-
 <section id="why"><div class="wrap"><div class="section-head"><span class="eyebrow">Why Choose Us</span><h2>Because your brand deserves to look unforgettable</h2></div><div class="why-grid"><div class="why-item"><h3>Premium Aesthetic</h3><p>Elegant visuals and design systems that make your brand look credible and unforgettable.</p></div><div class="why-item"><h3>Expertise &amp; Governance</h3><p>Experts work on your project; professionals supervise it, end to end.</p></div><div class="why-item"><h3>High Conversion Focus</h3><p>We build to attract attention and generate action, not just admiration.</p></div><div class="why-item"><h3>Trust &amp; Professionalism</h3><p>We deliver with responsibility and clarity, every time.</p></div></div></div></section>
-
 <section class="cta"><div class="wrap cta-wrap"><span class="eyebrow">Ready to Build Something Powerful?</span><h2>Let Raeigaze craft the reality your brand deserves</h2><p>And be stress-free while we do it.</p><a href="contact.html" class="btn btn-solid">Let's Work Together</a></div></section>
-<footer><div class="wrap footer-inner"><a href="index.html" class="logo">raeigaze</a><span class="footer-copy">&copy; <span id="year"></span> RaeiGaze. All Rights Reserved.</span></div></footer>
-<script src="assets/script.js"></script>
+<footer><div class="wrap footer-inner"><a href="index.html" class="logo">raeigaze</a><span class="footer-copy">&copy; <span id="year"></span> RaeiGaze. All Rights Reserved.</span></div></footer><script src="assets/script.js"></script>
 </body>
 </html>
