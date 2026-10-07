@@ -8,6 +8,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<style>
+.nav-projects{position:relative}
+.nav-projects>a{display:flex;align-items:center;gap:6px}
+.nav-projects>a::after{content:"⌄";font-size:11px;opacity:.65;transform:translateY(-1px)}
+.projects-dropdown{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(-5px);min-width:230px;padding:8px;background:rgba(12,12,12,.97);border:1px solid rgba(255,255,255,.12);border-radius:12px;box-shadow:0 18px 45px rgba(0,0,0,.35);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,transform .2s ease,visibility .2s ease;z-index:50}
+.nav-projects:hover .projects-dropdown,.nav-projects:focus-within .projects-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.projects-dropdown a{display:block;padding:11px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:12px;line-height:1.3}
+.projects-dropdown a:hover{background:rgba(255,255,255,.07)}
+.projects-dropdown a span{display:block;color:var(--ink-dim);font-size:10px;margin-top:4px}
+@media(max-width:900px){.projects-dropdown{position:static;transform:none;min-width:0;margin:8px 0 0;display:none;opacity:1;visibility:visible;pointer-events:auto;box-shadow:none}.nav-projects:focus-within .projects-dropdown,.nav-projects:hover .projects-dropdown{display:block;transform:none}}
+</style>
 </head>
 <body>
 
@@ -22,6 +33,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
+        <li class="nav-projects"><a href="#projects">Projects</a><div class="projects-dropdown"><a href="services/web-design.html">Web Design &amp; Development<span>View website projects</span></a><a href="services/photo-video-editing.html">Video Editing<span>View editing projects</span></a></div></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" class="btn btn-ghost active">Contact</a></li>
       </ul>
@@ -47,27 +59,27 @@
 
     <div class="contact-methods">
 
-      <a href="tel:+910000000000" class="contact-method">
+      <a href="tel:+917006383198" class="contact-method">
         <span class="icon">
           <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </span>
         <span>
           <span class="label">Call Us</span>
-          <span class="value">+91 00000 00000</span>
+          <span class="value">+91 7006383198</span>
         </span>
       </a>
 
-      <a href="mailto:hello@raeigaze.com" class="contact-method">
+      <a href="mailto:raeigaze@gmail.com" class="contact-method">
         <span class="icon">
           <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
         </span>
         <span>
           <span class="label">Email Us</span>
-          <span class="value">hello@raeigaze.com</span>
+          <span class="value">raeigaze@gmail.com</span>
         </span>
       </a>
 
-      <a href="https://wa.me/910000000000" target="_blank" rel="noopener" class="contact-method">
+      <a href="https://wa.me/917006383198" target="_blank" rel="noopener" class="contact-method">
         <span class="icon">
           <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </span>
@@ -89,7 +101,7 @@
 
     </div>
 
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm" action="https://formsubmit.co/raeigaze@gmail.com" method="POST">
       <div class="field">
         <input type="text" id="name" name="name" placeholder=" " required>
         <label for="name">Full Name</label>
@@ -110,8 +122,12 @@
         <textarea id="message" name="message" placeholder=" " required></textarea>
         <label for="message">Tell us about your project</label>
       </div>
+      <input type="hidden" name="_subject" value="New RaeiGaze Website Enquiry">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://raeigaze.vercel.app/contact.html?sent=1">
       <button type="submit" class="btn btn-solid">Send Message</button>
-      <p class="form-note">This form is front-end ready &mdash; connect it to your email or a service like Formspree to start receiving submissions.</p>
+      <p class="form-status" id="formStatus" aria-live="polite" style="display:none;"></p>
     </form>
 
   </div>
@@ -124,6 +140,37 @@
   </div>
 </footer>
 
+<script src="assets/script.js"></script>
+<script>
+const contactForm=document.getElementById('contactForm');
+const formStatus=document.getElementById('formStatus');
+if(contactForm){
+  contactForm.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const button=contactForm.querySelector('button[type="submit"]');
+    const original=button.textContent;
+    button.disabled=true;
+    button.textContent='Sending...';
+    formStatus.style.display='none';
+    try{
+      const response=await fetch(contactForm.action,{method:'POST',body:new FormData(contactForm),headers:{'Accept':'application/json'}});
+      if(response.ok){
+        contactForm.reset();
+        formStatus.textContent='Message sent. We’ll get back to you soon.';
+        formStatus.style.display='block';
+      }else{
+        throw new Error('Submission failed');
+      }
+    }catch(error){
+      formStatus.textContent='Something went wrong. Please email raeigaze@gmail.com directly.';
+      formStatus.style.display='block';
+    }finally{
+      button.disabled=false;
+      button.textContent=original;
+    }
+  });
+}
+</script>
 <script src="assets/script.js"></script>
 </body>
 </html>
